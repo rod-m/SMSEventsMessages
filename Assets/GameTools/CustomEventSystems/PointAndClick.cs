@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 namespace GameTools.CustomEventSystems
 {
-    public class PointAndClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+    public class PointAndClick : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler
     {
         public string ClickEventName = "PointAndClick";
         public Color[] _colourStart;
