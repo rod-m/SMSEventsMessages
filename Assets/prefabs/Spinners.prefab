@@ -55,6 +55,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -147,6 +148,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -194,9 +196,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6259049548046997897}
   - component: {fileID: 6259049548046997902}
+  - component: {fileID: 4975167578227511408}
   m_Layer: 9
   m_Name: Spinners
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -231,3 +234,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yAngle: 5
   turnByAngle: 90
+--- !u!114 &4975167578227511408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6259049548046997896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edbca42c2eb54623956a6346be4f23a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -19,17 +19,21 @@ public class EventDemo : MonoBehaviour
 
     void OnEnable ()
     {
-        EventManager.StartListening ("Spin", spinListener);
-        EventManager.StartListening ("Sleep", sleepListener);
+        EventManager.Instance.StartListening ("Spin", spinListener);
+        EventManager.Instance.StartListening ("Sleep", sleepListener);
    
     }
 
     void OnDisable ()
     {
         // ensure that no memory leak occurs
-        EventManager.StopListening ("Spin", spinListener);
-        EventManager.StopListening ("Sleep", sleepListener);
-  
+        if (EventManager.Instance != null)
+        {
+            EventManager.Instance.StopListening ("Spin", spinListener);
+            EventManager.Instance.StopListening ("Sleep", sleepListener);
+
+        }
+        
     }
 
     void Update ()

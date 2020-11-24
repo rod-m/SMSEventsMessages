@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
     }
-
     void FixedUpdate()
     {     
         float moveHorizontal = Input.GetAxis("Horizontal");
@@ -21,7 +20,7 @@ public class PlayerController : MonoBehaviour
         m_EulerAngleVelocity.y += moveHorizontal * rotationSpeed;
         Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity);
         rb.MoveRotation(deltaRotation);
-        rb.AddForce(transform.forward * speed * moveVertical);
+        rb.AddForce(transform.forward * (speed * moveVertical));
         if (rb.velocity.magnitude > speed)
         {
             rb.velocity = rb.velocity.normalized * speed;
@@ -33,7 +32,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown (KeyCode.Space))
         {
-            EventManager.TriggerEvent ("Spin");
+            EventManager.Instance.TriggerEvent ("Spin");
         }
      
     }

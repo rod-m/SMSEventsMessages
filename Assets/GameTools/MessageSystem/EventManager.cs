@@ -1,47 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Singletons;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace GameTools.MessageSystem
 {
-    
-    public class EventManager : MonoBehaviour
+    public sealed class EventManager : GenericSingleton<EventManager>
     {
         private Dictionary<string, UnityEvent> eventDictionary;
-        private static EventManager _eventManager;
-    
-        public static EventManager Instance
-        {
-            get
+        
+        public override void Awake()    {        
+            base.Awake();
+            if (Instance.eventDictionary == null)
             {
-                if (!_eventManager)
-                {
-                    _eventManager = FindObjectOfType(typeof(EventManager)) as EventManager;
-                    if (!_eventManager)
-                    {
-                        Debug.LogError("You need a active EventManager in the scene!");
-                    }
-                    else
-                    {
-                        // _eventManager initialise
-                        _eventManager.Init();
-                    }
-                }
-
-                return _eventManager;
-            }
-        }
-
-        void Init()
-        {
-            if (eventDictionary == null)
-            {
-                eventDictionary = new Dictionary<string, UnityEvent>();
+                Instance.eventDictionary = new Dictionary<string, UnityEvent>();
             }
         }
     
-        public static void StartListening (string eventName, UnityAction listener)
+        public void StartListening (string eventName, UnityAction listener)
         {
             UnityEvent thisEvent = null;
             if (Instance.eventDictionary.TryGetValue (eventName, out thisEvent))
@@ -56,9 +32,9 @@ namespace GameTools.MessageSystem
             }
         }
 
-        public static void StopListening (string eventName, UnityAction listener)
+        public void StopListening (string eventName, UnityAction listener)
         {
-            if (_eventManager == null) return;
+            if (Instance == null) return;
             UnityEvent thisEvent = null;
             if (Instance.eventDictionary.TryGetValue (eventName, out thisEvent))
             {
@@ -66,7 +42,7 @@ namespace GameTools.MessageSystem
             }
         }
 
-        public static void TriggerEvent (string eventName)
+        public void TriggerEvent (string eventName)
         {
             UnityEvent thisEvent = null;
             if (Instance.eventDictionary.TryGetValue (eventName, out thisEvent))

@@ -7,25 +7,25 @@ public class EventTest : MonoBehaviour {
 
     void Awake ()
     {
-        someListener = new UnityAction (SomeFunction);
+        someListener = new UnityAction (DoSomething);
         someListener += SomeOtherFunction;
     }
 
     void OnEnable ()
     {
-        EventManager.StartListening ("test", someListener);
-        EventManager.StartListening ("Spawn", SomeOtherFunction);
-        EventManager.StartListening ("Destroy", SomeThirdFunction);
+        EventManager.Instance.StartListening ("test", someListener);
+        EventManager.Instance.StartListening ("Spawn", SomeOtherFunction);
+        EventManager.Instance.StartListening ("Destroy", SomeThirdFunction);
     }
 
     void OnDisable ()
     {
-        EventManager.StopListening ("test", someListener);
-        EventManager.StopListening ("Spawn", SomeOtherFunction);
-        EventManager.StopListening ("Destroy", SomeThirdFunction);
+        EventManager.Instance.StopListening ("test", someListener);
+        EventManager.Instance.StopListening ("Spawn", SomeOtherFunction);
+        EventManager.Instance.StopListening ("Destroy", SomeThirdFunction);
     }
 
-    void SomeFunction ()
+    void DoSomething ()
     {
         Debug.Log ("Some Function was called!");
     }
