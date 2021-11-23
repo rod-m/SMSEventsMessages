@@ -13,12 +13,9 @@ public class EventDemo : MonoBehaviour
     public int turnByAngle = 90;
     void Awake ()
     {
+        
         spinListener = new UnityAction (SpinUp);
         sleepListener = new UnityAction (Sleep);
-    }
-
-    void OnEnable ()
-    {
         EventManager.Instance.StartListening ("Spin", spinListener);
         EventManager.Instance.StartListening ("Sleep", sleepListener);
    

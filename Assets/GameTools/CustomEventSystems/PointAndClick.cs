@@ -66,6 +66,7 @@ namespace GameTools.CustomEventSystems
 
         public void OnPointerClick(PointerEventData eventData)
         {
+          
             EventManager.Instance.TriggerEvent(ClickEventName);
         }
     }

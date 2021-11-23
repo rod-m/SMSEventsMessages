@@ -11,6 +11,7 @@ namespace Singletons
         {
             get
             {
+                
                 if (applicationIsQuitting)
                 {
                     return null;
@@ -18,6 +19,7 @@ namespace Singletons
 
                 if (instance == null)
                 {
+                    Debug.Log($"Singleton Init One OFF!");
                     instance = FindObjectOfType<T>();
                     if (instance == null)
                     {

@@ -7,19 +7,19 @@ namespace GameTools.MessageSystem
 {
     public sealed class EventManager : GenericSingleton<EventManager>
     {
-        private Dictionary<string, UnityEvent> eventDictionary;
+        private Dictionary<string, UnityEvent> eventDictionary = new Dictionary<string, UnityEvent>();
         
-        public override void Awake()    {        
+        public override void Awake()
+        { 
+            
             base.Awake();
-            if (Instance.eventDictionary == null)
-            {
-                Instance.eventDictionary = new Dictionary<string, UnityEvent>();
-            }
+          
         }
     
         public void StartListening (string eventName, UnityAction listener)
         {
             UnityEvent thisEvent = null;
+            Debug.Log($"StartListen {Instance.name}");
             if (Instance.eventDictionary.TryGetValue (eventName, out thisEvent))
             {
                 thisEvent.AddListener (listener);

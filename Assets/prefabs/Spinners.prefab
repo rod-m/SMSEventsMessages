@@ -56,6 +56,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -80,6 +81,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &7169713865564472707
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -149,6 +151,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -173,6 +176,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &6259049547517951503
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -246,3 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edbca42c2eb54623956a6346be4f23a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ClickEventName: PointAndClick
+  _colourStart:
+  - {r: 0.18585716, g: 0.7735849, b: 0.18536842, a: 0}
+  - {r: 0.8490566, g: 0.1313634, b: 0.1313634, a: 0}
