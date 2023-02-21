@@ -7,7 +7,8 @@ namespace GameTools.CustomEventSystems
 {
     public class PointAndClick : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler
     {
-        public string ClickEventName = "PointAndClick";
+        //public string ClickEventName = "PointAndClick";
+        public EventOption ClickEvent = EventOption.Spin;
         public Color[] _colourStart;
 
         private void Awake()
@@ -67,7 +68,7 @@ namespace GameTools.CustomEventSystems
         public void OnPointerClick(PointerEventData eventData)
         {
           
-            EventManager.Instance.TriggerEvent(ClickEventName);
+            EventManager.Instance.TriggerEvent(ClickEvent.ToString());
         }
     }
 }

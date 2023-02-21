@@ -10,7 +10,7 @@ public class EventTriggerTest : MonoBehaviour
         // this could be a collision or timer or anything
         if (Input.GetKeyDown ("q"))
         {
-            EventManager.Instance.TriggerEvent ("test");
+            EventManager.Instance.TriggerEvent (EventOption.Test.ToString());
         }
         
       

@@ -9,12 +9,6 @@ namespace GameTools.MessageSystem
     {
         private Dictionary<string, UnityEvent> eventDictionary = new Dictionary<string, UnityEvent>();
         
-        public override void Awake()
-        { 
-            
-            base.Awake();
-          
-        }
     
         public void StartListening (string eventName, UnityAction listener)
         {
@@ -47,6 +41,7 @@ namespace GameTools.MessageSystem
             UnityEvent thisEvent = null;
             if (Instance.eventDictionary.TryGetValue (eventName, out thisEvent))
             {
+                Debug.Log($"TriggerEvent {eventName}");
                 thisEvent.Invoke ();
             }
         }

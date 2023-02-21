@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown (KeyCode.Space))
         {
-            EventManager.Instance.TriggerEvent ("Spin");
+            EventManager.Instance.TriggerEvent (EventOption.Spin.ToString());
         }
      
     }

@@ -7,7 +7,7 @@ using GameTools.MessageSystem;
 public class EventDemo : MonoBehaviour
 {
     private UnityAction spinListener;
-    private UnityAction sleepListener;
+
     public float yAngle = 1f;
     private bool spin = false;
     public int turnByAngle = 90;
@@ -15,9 +15,9 @@ public class EventDemo : MonoBehaviour
     {
         
         spinListener = new UnityAction (SpinUp);
-        sleepListener = new UnityAction (Sleep);
-        EventManager.Instance.StartListening ("Spin", spinListener);
-        EventManager.Instance.StartListening ("Sleep", sleepListener);
+     
+        EventManager.Instance.StartListening (EventOption.Spin.ToString(), spinListener);
+     
    
     }
 
@@ -26,8 +26,8 @@ public class EventDemo : MonoBehaviour
         // ensure that no memory leak occurs
         if (EventManager.Instance != null)
         {
-            EventManager.Instance.StopListening ("Spin", spinListener);
-            EventManager.Instance.StopListening ("Sleep", sleepListener);
+            EventManager.Instance.StopListening (EventOption.Spin.ToString(), spinListener);
+
 
         }
         
@@ -59,8 +59,5 @@ public class EventDemo : MonoBehaviour
         
         spin = true;
     }
-    void Sleep()
-    {
-        spin = false;
-    }
+  
 }
