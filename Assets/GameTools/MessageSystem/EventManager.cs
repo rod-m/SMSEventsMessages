@@ -45,6 +45,7 @@ namespace GameTools.MessageSystem
                 thisEvent.Invoke ();
             }
         }
+       
     }
 
 }

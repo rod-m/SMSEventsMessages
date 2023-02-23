@@ -19,6 +19,7 @@ public class EventTest : MonoBehaviour {
 
     void OnDisable ()
     {
+   
         EventManager.Instance.StopListening (EventOption.Test.ToString(), testListener);
     }
     void DoSomething ()

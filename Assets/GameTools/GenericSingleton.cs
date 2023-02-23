@@ -14,6 +14,7 @@ namespace Singletons
                 
                 if (applicationIsQuitting)
                 {
+                    Debug.Log("Singleton is quiting! Ignore any null errors!");
                     return null;
                 }
 
